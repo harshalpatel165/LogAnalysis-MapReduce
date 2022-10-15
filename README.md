@@ -85,5 +85,21 @@ The output is given in the output folder in a file named part-r-00000. To conver
 - To open the csv the csv file should be copied to the local filesystem first using 
 
   ```hdfs dfs -copyToLocal /output/output[task_number]/part-r-00000.csv [local_path]```
+  
+#### Running on AWS EMR
+- Please follow Youtube tutorial: 
+
+## Functionality and Project files
+- Task 1:
+  The distribution of the different type of messages(INFO,WARN,DEBUG,ERROR) across predefined time intervals(mentioned below) and injected string instances of the designated regex pattern(mentioned below)
+
+- Task 2:
+  Time intervals of 1 second sorted in the descending order that contained most log messages of the type ERROR with injected regex pattern string instances
+
+- Task 3:
+  The distribution of the different type of messages(INFO,WARN,DEBUG,ERROR)
+
+- Task 4:
+  The number of characters in each log message for each log message type that contain the highest number of characters in the detected instances of the designated regex pattern.
 
 
