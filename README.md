@@ -1,4 +1,4 @@
-# Logfile Analysis using Hadoop Map Reduce - 
+# Logfile Analysis using Hadoop Map Reduce - Harshal Patel 
 ## Introduction
 The goal of this application is to use a generated log file with random sequences of characters as log messages, and processes the file and extract different distributions of the messages. These proccess are run in parellel using the hadoop map reduce framework. The log file is initially split into shards, and is run through 4 map reduce tasks which process the data into different distributions. The map reduce tasks are also run through AWS EMR as well.
 ## Prerequisites and Installation
@@ -79,5 +79,11 @@ The output is given in the output folder in a file named part-r-00000. To conver
 - After a task has fully finished running, doing ```hdfs dfs -ls /output/output[task_number]``` should look like this:
 
   ![image](https://user-images.githubusercontent.com/55267253/196010608-870f04a8-27f3-4f2c-ab12-9dd2b22d3fb5.png)
+  
+- To see output run: ```hdfs dfs -cat /output/output[task_number]/part-r-00000``` 
+- and to convert it to csv: ```hdfs dfs -cp /output/output[task_number]/part-r-00000 /output/output[task_number]/part-r-00000.csv```
+- To open the csv the csv file should be copied to the local filesystem first using 
+
+  ```hdfs dfs -copyToLocal /output/output[task_number]/part-r-00000.csv [local_path]```
 
 
