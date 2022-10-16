@@ -221,7 +221,7 @@ object MapReduce2:
     val conf2 = new Configuration
     conf2.set("mapreduce.job.maps", "1")
     conf2.set("mapreduce.job.reduces", "1")
-    //conf2.set("mapreduce.output.textoutputformat.separator", ",")
+    conf2.set("mapreduce.output.textoutputformat.separator", ", ")
     val job2 = Job.getInstance(conf2, "job2")
     job2.setJobName("MapReduce2 job2")
 

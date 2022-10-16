@@ -64,8 +64,9 @@ object MapReduce3:
     //require(!inputPath.isBlank() && !outputPath.isBlank())
     logger.info("Input path recieved by MapReduce Task 3:" + inputPath)
     logger.info("Output path recieved by MapReduce Task 3:" + outputPath)
-    //conf1.set("mapreduce.output.textoutputformat.separator", ",")
+
     val conf1 = new Configuration // new job configuration
+    conf1.set("mapreduce.output.textoutputformat.separator", ", ")
     conf1.set("mapreduce.job.reduces", "1")
     val job1 = Job.getInstance(conf1, "job1")
     job1.setJobName("MapReduce3")
