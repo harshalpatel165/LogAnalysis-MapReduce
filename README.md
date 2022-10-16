@@ -122,6 +122,18 @@ The output is given in the output folder in a file named part-r-00000. To conver
     00:47:06 1
     ```
     This means 3 messages of type ERROR fall within the specified time interval and contains the specified regex and is happened within the 1 second interval of 00:47:05. 2 of these happened within the 1 second interval of 00:47:06
+    
+    The Reduce class for the first job called Reduce1 simply condenses it. The second job sorts the distribution by its count. We use a custom comparator class called SortComparator  which takes input from a Map class and sorts by key. Therefore we need to swap the key and value from the first job since the count is what we are sorting by. So we have a Map class called Swap which makes the key the count and the value the time. Before that output is run through the reduce, it is run through the comparator which sorts it by descending order and also condenses the values with the key. 
+    
+    So the input to the reduce would look something like this
+    ```
+    3 {00:47:05, 00:47:08}
+    2 {00:47:06, 00:47:09}
+    1 {00:47:07}
+    ```
+    The Reduce class called ReSwap, takes this as input and reswaps the key and value and also expand the values
+    
+    
   - MapReduce3.scala: 
   - MapReduce4.scala: 
 - Application.scala
