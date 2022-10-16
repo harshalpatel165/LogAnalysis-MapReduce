@@ -162,3 +162,13 @@ info = [0.7, 1]
 This means there is a 50 percent chance the log message type is ERROR which would give us a more meaningful output for task 2.
 
 
+## Output
+Task 2 output has been cutoff here as it is large. Full output can be found [here](https://github.com/harshalpatel165/LogAnalysis-MapReduce/blob/master/src/main/resources/output2/part-r-00000.csv)
+
+Task 1:
+DEBUG	399
+ERROR	2015
+INFO	1207
+WARN	376
+
+
