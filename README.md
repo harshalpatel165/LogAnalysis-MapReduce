@@ -150,6 +150,8 @@ The time interval is {00:47:04.911, 00:48:05.272} which is actually the entire i
 
 #### Log file generation
 The log file is generated using the program from this repository: https://github.com/0x1DOCD00D/CS441_Fall2022/tree/main/LogFileGenerator
-The generator uses a configuration that modifies the output of the generator.
+The generator uses a configuration that modifies the output of the generator. Some settings that were tweaked:
+
+The message length that is generated is anywhere between 10 and 15 characters. Since for task 2, I chose an interval of 1 second and within each second I needed multiple ERROR messages to result in a meaningful computation for that task, I set DurationMinutes to only 1, but set a TimePeriod for every 5 milliseconds. This means ~200 log lines would be generated every second. For that same reason, I set the probability of logMessageType to be ```fdsf```
 
 
