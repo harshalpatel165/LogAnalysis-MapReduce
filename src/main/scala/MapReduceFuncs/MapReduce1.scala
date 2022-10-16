@@ -107,7 +107,7 @@ object MapReduce1:
     logger.info("Input path recieved by MapReduce Task 1:" + inputPath)
     logger.info("Output path recieved by MapReduce Task 1:" + outputPath)
     val conf1 = new Configuration
-    //conf1.set("mapreduce.output.textoutputformat.separator", ",")
+    conf1.set("mapreduce.output.textoutputformat.separator", ", ")
     conf1.set("mapreduce.job.reduces", "1")
     val job1 = Job.getInstance(conf1, "job1")
     job1.setJobName("MapReduce1")
