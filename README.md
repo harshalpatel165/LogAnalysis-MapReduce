@@ -134,9 +134,22 @@ The output is given in the output folder in a file named part-r-00000. To conver
     The Reduce class called ReSwap, takes this as input and reswaps the key and value and also expand the values
     
     
-  - MapReduce3.scala: 
-  - MapReduce4.scala: 
+  - MapReduce3.scala: This is simply the same as the first task, but does not have the conditions of the time interval and containing regex. The Mapper simply output a key that is the log type with a count of 1. The Reducer condeneses it.
+  - MapReduce4.scala: The Map for this task takes each log line and produces a key of the log type and a value that is the number of characters in the log message. The Reducer determines the maximum message length for each log type. It does a reduce() with a function that pick the maximum of 2 entries.
 - Application.scala
   Runs the map reduce jobs based on commmand line input which specifies which task to run and passes in the input/output paths to the task functions. 
+
+
+### Configuration, Input, and Limitations
+
+#### Specified variables(application.conf)
+For Task 1 and 2 we hae specified the time interval to compute the distribution between is {00:47:04.911, 00:48:05.272} and the regex is ".*[a-c].*" which means the log message must contain any character between 'a' and 'c'.
+For task for the regex just searches for the letter i.
+
+The time interval is {00:47:04.911, 00:48:05.272} which is actually the entire input file. I  did  this for simplicities sake, however and time interval can be anything as long as it exists within the input file.
+
+#### Log file generation
+The log file is generated using the program from this repository: https://github.com/0x1DOCD00D/CS441_Fall2022/tree/main/LogFileGenerator
+The generator uses a configuration that modifies the output of the generator.
 
 
