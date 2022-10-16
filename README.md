@@ -161,3 +161,4 @@ info = [0.7, 1]
 ```
 This means there is a 50 percent chance the log message type is ERROR which would give us a more meaningful output for task 2.
 
+
