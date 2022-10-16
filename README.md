@@ -166,9 +166,16 @@ This means there is a 50 percent chance the log message type is ERROR which woul
 Task 2 output has been cutoff here as it is large. Full output can be found [here](https://github.com/harshalpatel165/LogAnalysis-MapReduce/blob/master/src/main/resources/output2/part-r-00000.csv)
 
 Task 1:
-DEBUG	399
-ERROR	2015
-INFO	1207
-WARN	376
+![image](https://user-images.githubusercontent.com/55267253/196015034-98bd34fe-77c4-41a2-b47a-7c81efa4b503.png)
+
+Task 2:
+![image](https://user-images.githubusercontent.com/55267253/196015050-92ad93e2-428c-4b4b-b257-76f4c3d1b4f4.png)
+
+Task 3:
+![image](https://user-images.githubusercontent.com/55267253/196015059-449f6f1b-042b-45b1-bfc9-7010bedd011b.png)
+
+Task 4:
+![image](https://user-images.githubusercontent.com/55267253/196015070-97478d55-23da-4112-a51c-5aa210ed8154.png)
+
 
 
