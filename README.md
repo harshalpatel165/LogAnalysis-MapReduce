@@ -90,6 +90,8 @@ The output is given in the output folder in a file named part-r-00000. To conver
 - Please follow Youtube tutorial: 
 
 ## Functionality and Project files
+
+### Task Descriptions
 - Task 1:
   The distribution of the different type of messages(INFO,WARN,DEBUG,ERROR) across predefined time intervals(mentioned below) and injected string instances of the designated regex pattern(mentioned below)
 
@@ -101,5 +103,28 @@ The output is given in the output folder in a file named part-r-00000. To conver
 
 - Task 4:
   The number of characters in each log message for each log message type that contain the highest number of characters in the detected instances of the designated regex pattern.
+
+### Project Files
+- HelperUtils Package
+  - CreateLogger.scala: Sets up loggger instance used for debugging
+  - ObtainConfigReference.scala: Sets up config reference which is used to retrieve predefined variables defined in the ```application.conf``` located in resources
+- MapReduceFuncs Package
+  - MapReduce1.scala: Map class maps each log line from input file with the key as the log type with a value of 1 only if the log line falls within specified time interval from the config file and the log message contains the specified regex. The output of the map is then sent to the reduce class. The Reduce class condenses the counts. Output is shown below
+
+  - MapReduce2.scala: Here we are running 2 map reduce jobs. First job takes all log lines within 1 second intervals that are between the specified time intervals and counts the amount of ERROR messages. The Map class of the first job called "Map" simply parses each log line in the input file and removes the millisecond which becomes the key and the value is given a value of 1 only if the log message contains the specified regex and if the the time for that specific log line fits withing the specified time interval.
+  
+    Output of that map would look something like:
+    ```
+    00:47:05 1
+    00:47:05 1
+    00:47:05 1
+    00:47:06 1
+    00:47:06 1
+    ```
+    This means 3 messages of type ERROR fall within the specified time interval and contains the specified regex and is happened within the 1 second interval of 00:47:05. 2 of these happened within the 1 second interval of 00:47:06
+  - MapReduce3.scala: 
+  - MapReduce4.scala: 
+- Application.scala
+  Runs the map reduce jobs based on commmand line input which specifies which task to run and passes in the input/output paths to the task functions. 
 
 
