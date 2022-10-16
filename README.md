@@ -6,7 +6,7 @@ The goal of this application is to use a generated log file with random sequence
 IntelliJ IDEA 2022.2.1, Scala 3.2.0, Hadoop 3.3.4, Sbt 1.7.1, JDK 11.0.16.1
 ### Installation
 #### Setup and Compile
-- Note: Make sure all tools are running on administrator mode including command line andd Intellij
+- Note: Make sure all tools are running on administrator mode including command line and Intellij
 - Clone project using Intellij IDEA -> Get from VCS -> URL: ```git@github.com:harshalpatel165/LogAnalysis-MapReduce.git``` -> Directory: directory of your choosing -> Clone
 - Using built-in terminal use:
 
@@ -177,5 +177,12 @@ Task 3:
 Task 4:
 ![image](https://user-images.githubusercontent.com/55267253/196015070-97478d55-23da-4112-a51c-5aa210ed8154.png)
 
-
-
+## Limitations and Obersvations
+1. The csv file cannot be created on AWS EMR since converting the file to csv requires the unix command cat, which could not be implemented as an extrta step.  With hadoop you have to expost it to a local filesystem to be able to open it with excel.
+2. Opening the csv file in excel does not seperate keys and values into 2 columns. However if you were to run the tasks and convert using 'cat' without the line
+   
+   ```conf1.set("mapreduce.output.textoutputformat.separator", ", ")```
+   Then it would, but it would not be a proper csv file.
+3. The interval was chosen to be 1 second for task 2 however choosing a larger interval would require some additional computation.
+4. As mentioned above output folder should not be present when running the tasks.
+5. There is no way to run a jar from the directly from the hadoop filesystem since the jar is maintains the project structure and paths. This is why we inputted the local file path of the jar when runnning the jar on hadoop.
